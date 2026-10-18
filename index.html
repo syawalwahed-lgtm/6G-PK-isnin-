@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ms">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Misi Kesihatan — Tahun 6</title>
+<style>
+:root{--ink:#172554;--pink:#ff5da2;--blue:#42c6ff;--yellow:#ffe66d;--mint:#8ff0c6;--purple:#a78bfa}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(130deg,#c8f7ff,#fce7f3,#fff2b8);min-height:100vh;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 15% 20%,#fff9 0 4px,transparent 5px),radial-gradient(circle at 80% 40%,#fff9 0 6px,transparent 7px);background-size:80px 80px;animation:float 16s linear infinite}
+@keyframes float{to{background-position:160px -160px}}@keyframes bob{50%{transform:translateY(-8px) rotate(2deg)}}@keyframes pop{0%{transform:scale(.8)}100%{transform:scale(1)}}
+header{padding:24px 16px 16px;text-align:center;background:linear-gradient(110deg,#6d5dfcdd,#00b8d9dd);color:white;border-radius:0 0 32px 32px;box-shadow:0 8px 24px #4338ca33}
+header .mascot{font-size:46px;animation:bob 2.5s infinite}h1{margin:4px 0;font-size:clamp(1.7rem,5vw,3rem)}header p{margin:5px auto;max-width:760px}
+.wrap{max-width:1050px;margin:auto;padding:16px}.toolbar{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:10px 0 18px}
+button,.btn{border:0;border-radius:14px;padding:12px 16px;font-weight:800;cursor:pointer;color:#172554;background:white;box-shadow:0 4px 0 #cbd5e1;transition:.15s;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+button:hover,.btn:hover{transform:translateY(-2px)}button:active{transform:translateY(2px);box-shadow:0 1px 0 #cbd5e1}.primary{background:var(--yellow)}.pink{background:#ffc4e0}.blue{background:#b9edff}.green{background:#baf7d8}
+.card{background:#ffffffdc;border:2px solid #ffffff;border-radius:24px;padding:20px;margin:14px 0;box-shadow:0 10px 28px #33415518;backdrop-filter:blur(5px)}
+h2{margin-top:0}h3{margin-bottom:6px}.tag{display:inline-block;background:#e0e7ff;border-radius:99px;padding:5px 10px;font-size:.82rem;font-weight:800;margin:3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:12px}.tile{background:#fff;border-radius:18px;padding:15px;border:2px solid #e0f2fe}.tile .emoji{font-size:30px}
+input{width:100%;padding:13px;border:2px solid #cbd5e1;border-radius:12px;font-size:1rem;margin:7px 0}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{background:#ede9fe}.tab.active{background:#6d5dfc;color:white}
+.panel{display:none}.panel.active{display:block;animation:pop .25s}
+.info{background:linear-gradient(120deg,#e0f2fe,#f3e8ff);border-radius:16px;padding:14px;margin:10px 0}
+.question{font-size:1.2rem;font-weight:850;line-height:1.4}.answers{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}.answers button{text-align:left;justify-content:flex-start;min-height:60px;box-shadow:0 4px 0 #dbeafe;background:#fff;border:2px solid #dbeafe}.answers button.correct{background:#bbf7d0;border-color:#22c55e}.answers button.wrong{background:#fecaca;border-color:#ef4444}
+.progress{height:12px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin:12px 0}.progress div{height:100%;width:0;background:linear-gradient(90deg,#34d399,#60a5fa,#c084fc);transition:width .3s}
+.feedback{font-weight:900;min-height:32px;margin:12px 0}.stars{font-size:1.4rem;color:#d97706}.small{font-size:.9rem;color:#475569}.footer{text-align:center;padding:22px;color:#334155}
+a{color:#4f46e5;font-weight:750}li{margin:7px 0}.hide{display:none!important}
+@media(max-width:550px){.answers{grid-template-columns:1fr}.card{padding:16px}.wrap{padding:10px}button,.btn{padding:11px 13px}}
+</style>
+</head>
+<body>
+<header><div class="mascot">🧑‍⚕️🌈🩺</div><h1>✨ MISI PAMERAN KESIHATAN ✨</h1><p>Pengembaraan didik hibur Pendidikan Kesihatan Tahun 6</p><p><b>Guru: MUHAMAD SYAWALWAHED</b> · SK (P) JALAN YAHYA AWAL</p></header>
+<div class="wrap">
+<div class="toolbar"><button class="primary" id="soundBtn" onclick="toggleSound()">🔊 Bunyi: ON</button><button class="blue" onclick="speak('Selamat datang ke Misi Pameran Kesihatan! Jom belajar dan kumpul bintang!')">🗣️ Dengar ucapan</button><button class="pink" onclick="window.print()">🖨️ Cetak nota/keputusan</button></div>
+<div class="card">
+<h2>👋 Selamat datang, Penjelajah Kesihatan!</h2>
+<label for="student"><b>Nama murid</b></label><input id="student" placeholder="Taip nama anda di sini..." autocomplete="name">
+<p>📍 <b>Tema:</b> Pameran Kesihatan　 <b>Unit:</b> 11</p>
+<p>🎯 <b>Misi hari ini:</b> Kenali perubahan diri, amalkan kebersihan, buat keputusan yang selamat dan tahu mendapatkan bantuan.</p>
+<div class="grid"><div class="tile"><div class="emoji">🧠</div><b>Belajar</b><p class="small">Baca nota ringkas dan tonton video pilihan.</p></div><div class="tile"><div class="emoji">🎮</div><b>Main kuiz</b><p class="small">Jawab 20 soalan dan kumpul ⭐.</p></div><div class="tile"><div class="emoji">🏆</div><b>Menang</b><p class="small">Capai skor tertinggi untuk menjadi Juara Kesihatan!</p></div></div>
+</div>
+<div class="toolbar tabs">
+<button class="tab active" onclick="showPanel('nota',this)">📚 Nota Infografik</button><button class="tab" onclick="showPanel('video',this)">▶️ Video YouTube</button><button class="tab" onclick="showPanel('game',this)">🎮 Permainan 20 Soalan</button><button class="tab" onclick="showPanel('hasil',this)">🏆 Kad Pencapaian</button>
+</div>
+<section id="nota" class="panel active">
+<div class="card"><h2>🖼️ Galeri Infografik: Hargai Perubahan Diri</h2><p class="small">Nota pembelajaran ringkas untuk murid Tahun 6. Perubahan berlaku pada kadar berbeza bagi setiap individu.</p>
+<div class="grid">
+<div class="tile"><div class="emoji">🌱</div><h3>Perubahan fizikal</h3><p>Semasa akil baligh, tubuh membesar dan bentuk badan berubah. Suara mungkin menjadi lebih matang, bulu tumbuh di ketiak dan kawasan sulit, kulit mungkin berjerawat serta peluh/bau badan boleh meningkat.</p></div>
+<div class="tile"><div class="emoji">💗</div><h3>Terima dan hargai diri</h3><p>Setiap orang berkembang pada masa yang berbeza. Bersyukur, yakin diri, tidak mengejek perubahan orang lain dan berbincang dengan orang dewasa dipercayai jika bimbang.</p></div>
+<div class="tile"><div class="emoji">🧼</div><h3>Kebersihan diri</h3><p>Mandi dan tukar pakaian bersih setiap hari, gunakan produk kebersihan yang sesuai, jaga kebersihan kulit dan rambut serta dapatkan nasihat penjaga atau petugas kesihatan jika perlu.</p></div>
+<div class="tile"><div class="emoji">🛡️</div><h3>Batas diri dan keselamatan</h3><p>Hormati tubuh dan ruang peribadi. Berhak berkata “TIDAK” terhadap sentuhan atau permintaan yang membuat tidak selesa. Beredar ke tempat selamat dan beritahu orang dewasa dipercayai.</p></div>
+<div class="tile"><div class="emoji">🧠</div><h3>Bijak membuat keputusan</h3><p>Berhenti seketika, fikirkan risiko dan akibat, pilih tindakan selamat serta minta bantuan. Jangan ikut tekanan rakan atau perkongsian dalam talian yang meragukan.</p></div>
+<div class="tile"><div class="emoji">🤝</div><h3>Dapatkan bantuan</h3><p>Beritahu ibu bapa/penjaga, guru, kaunselor atau petugas kesihatan. Jika berada dalam bahaya segera di Malaysia, hubungi 999 dengan bantuan orang dewasa.</p></div>
+</div>
+<div class="info"><b>💡 Ingat!</b> Tiada siapa patut dipersalahkan jika seseorang melanggar batas tubuhnya. Cari bantuan daripada orang dewasa yang dipercayai.</div>
+</div>
+<div class="card"><h2>📌 Standard Kurikulum (rujukan)</h2>
+<p><b>Mata pelajaran:</b> Pendidikan Kesihatan · Tahun 6 · Tema Pameran Kesihatan · Unit 11</p>
+<p><b>Bidang:</b> 1.0 Kesihatan Diri dan Reproduktif (PEERS).</p>
+<p><b>Standard Kandungan:</b> 1.1 Kemahiran membuat keputusan dalam konteks kesihatan diri dan reproduktif; 1.2 (mengikut kandungan unit) memahami aspek kesihatan reproduktif dan sosial.</p>
+<p><b>Standard Pembelajaran fokus:</b> 1.1.1 Menjelaskan perubahan fizikal lelaki dan perempuan apabila memasuki alam remaja. Aktiviti turut mengukuhkan penerimaan perubahan diri, kebersihan, batas diri dan keputusan selamat.</p>
+<p class="small">Nota: Sila semak kod dan frasa SP tambahan dengan DSKP serta RPT sekolah yang digunakan, kerana susunan RPT boleh berbeza. Sumber rujukan DSKP dan bahan unit disediakan di bahagian pautan.</p>
+<p><b>Kemahiran fokus:</b> Mengenal pasti perubahan fizikal; membuat keputusan; komunikasi asertif; menjaga kebersihan; mendapatkan bantuan.</p>
+<p><b>Objektif pembelajaran:</b> Pada akhir sesi, murid dapat menyatakan sekurang-kurangnya tiga perubahan fizikal semasa remaja dan memilih tindakan yang selamat dalam situasi kesihatan diri.</p>
+</div>
+</section>
+<section id="video" class="panel"><div class="card"><h2>▶️ Sudut Video Pembelajaran</h2><p>Pautan carian YouTube ini membuka pilihan video berkaitan. Guru digalakkan menyemak kandungan, kesesuaian umur dan iklan sebelum tayangan.</p><div class="grid">
+<div class="tile"><div class="emoji">🌱</div><h3>Perubahan fizikal remaja</h3><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=pendidikan+kesihatan+tahun+6+perubahan+fizikal+remaja">▶ Cari video YouTube</a></div>
+<div class="tile"><div class="emoji">🧼</div><h3>Kebersihan diri remaja</h3><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=kebersihan+diri+remaja+pendidikan+kesihatan+sekolah+rendah">▶ Cari video YouTube</a></div>
+<div class="tile"><div class="emoji">🛡️</div><h3>Batas diri dan keselamatan</h3><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=keselamatan+diri+kanak-kanak+berkata+tidak+Bahasa+Melayu">▶ Cari video YouTube</a></div>
+<div class="tile"><div class="emoji">🧠</div><h3>Kemahiran membuat keputusan</h3><a target="_blank" rel="noopener" href="https://www.youtube.com/results?search_query=kemahiran+membuat+keputusan+pendidikan+kesihatan+tahun+6">▶ Cari video YouTube</a></div>
+</div><div class="info">🎬 Cadangan aliran: tonton satu video pendek (3–5 minit), minta murid nyatakan dua perkara yang dipelajari, kemudian teruskan ke kuiz.</div></div></section>
+<section id="game" class="panel"><div class="card"><h2>🎮 Cabaran Bintang Kesihatan</h2><p>Jawab 20 soalan. Setiap jawapan betul mendapat ⭐. Anda boleh cuba semula selepas melihat keputusan.</p><div class="progress"><div id="bar"></div></div><div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap"><b id="counter">Soalan 1 / 20</b><b class="stars" id="score">⭐ 0</b></div><div id="quiz"><p class="question" id="qtext"></p><div class="answers" id="answers"></div><div class="feedback" id="feedback" aria-live="polite"></div><button class="primary" id="next" onclick="nextQuestion()" disabled>Soalan seterusnya ➜</button></div><div id="gameover" class="hide"><div style="font-size:55px;text-align:center" id="trophy">🏆🎉</div><h2 id="endtitle">Tahniah!</h2><p id="endtext"></p><div class="info" id="badge"></div><button class="primary" onclick="startGame()">🔁 Main semula</button><button class="green" onclick="showPanel('hasil',document.querySelectorAll('.tab')[3])">Lihat kad pencapaian</button></div></div></section>
+<section id="hasil" class="panel"><div class="card"><h2>🏆 Kad Pencapaian Murid</h2><div class="info" id="report">Lengkapkan kuiz untuk melihat kad pencapaian anda.</div><p><b>Refleksi ringkas:</b> Apakah satu perkara yang akan anda amalkan selepas sesi ini?</p><textarea id="reflection" rows="3" style="width:100%;border:2px solid #cbd5e1;border-radius:12px;padding:12px;font:inherit" placeholder="Saya akan..."></textarea><p><button class="primary" onclick="saveReport()">Simpan refleksi pada paparan</button></p></div>
+<div class="card"><h2>🔎 Pautan rujukan guru</h2><ul><li><a target="_blank" rel="noopener" href="https://anyflip.com/dwtud/uwqp/basic">DSKP Pendidikan Kesihatan Tahun 6 (salinan rujukan)</a></li><li><a target="_blank" rel="noopener" href="https://sites.google.com/moe-dl.edu.my/pjpk-sksp/2-0-dskp">Portal panitia: DSKP, RPT dan buku teks</a></li><li><a target="_blank" rel="noopener" href="https://www.systempublications.com.my/S.Classroom26/Tahun6/PJPK/Jwp_PJPK_thn6.pdf">Bahan jawapan Unit 11 Pameran Kesihatan (rujukan buku)</a></li></ul><p class="small">Sumber video dipautkan sebagai carian YouTube, bukan video yang telah disahkan. Sahkan pautan, kandungan dan kesesuaian sebelum PdP.</p></div></section>
+<div class="footer">🌟 Belajar dengan ceria, hormati diri dan bantu rakan! 🌟<br><span class="small">Bahan interaktif HTML · Boleh dibuka di telefon, tablet dan komputer.</span></div>
+</div>
+<script>
+const questions=[
+["Apakah yang boleh berlaku apabila seseorang memasuki alam remaja?",["Tiada perubahan langsung","Perubahan fizikal berlaku","Semua orang berubah pada hari sama","Semua perubahan ialah penyakit"],1,"Perubahan fizikal ialah sebahagian daripada proses membesar."],
+["Antara berikut, yang manakah perubahan yang boleh berlaku semasa akil baligh?",["Bertambah tinggi","Hilang semua tulang","Tidak perlu tidur","Tidak perlu makan"],0,"Pertumbuhan tinggi boleh berlaku semasa remaja."],
+["Jika suara berubah ketika membesar, apakah tindakan terbaik?",["Mengejek diri sendiri","Malu dan bersembunyi","Menerima perubahan sebagai proses biasa","Mengejek rakan"],2,"Perubahan berlaku pada kadar berbeza. Terima diri dan hormati rakan."],
+["Apakah amalan kebersihan yang sesuai?",["Memakai baju sama berhari-hari","Mandi dan menukar pakaian bersih","Berkongsi tuala basah","Mengabaikan bau badan"],1,"Mandi dan pakaian bersih membantu menjaga kebersihan."],
+["Mengapa sesetengah remaja mendapat jerawat?",["Kulit boleh berubah akibat perubahan hormon","Mereka tidak boleh minum air","Mereka tidak boleh bersukan","Jerawat sentiasa berjangkit"],0,"Perubahan hormon boleh mempengaruhi kulit. Elakkan memicit jerawat."],
+["Apakah respons yang baik apabila rakan mengalami perubahan fizikal?",["Menyebarkan cerita","Mengejeknya","Menghormati dan tidak memalukan rakan","Mengambil gambar tanpa izin"],2,"Hormati privasi dan perasaan orang lain."],
+["Jika sesuatu sentuhan membuat kamu tidak selesa, kamu boleh…",["Berdiam diri selama-lamanya","Berkata tidak, beredar dan beritahu orang dipercayai","Mengikut sahaja","Menyimpan rahsia walaupun takut"],1,"Kamu berhak menetapkan batas diri dan mendapatkan bantuan."],
+["Siapakah yang sesuai diminta bantuan apabila bimbang tentang perubahan tubuh?",["Orang dewasa dipercayai atau petugas kesihatan","Orang tidak dikenali dalam talian","Akaun rawak media sosial","Tiada sesiapa"],0,"Ibu bapa/penjaga, guru, kaunselor atau petugas kesihatan boleh membantu."],
+["Apakah maksud membuat keputusan yang selamat?",["Ikut semua ajakan rakan","Bertindak tanpa berfikir","Fikir pilihan, risiko dan akibat","Pilih yang paling popular"],2,"Fikirkan akibat sebelum bertindak."],
+["Rakan mendesak kamu melakukan perkara berbahaya. Apakah pilihan terbaik?",["Ikut supaya diterima","Tolak dengan tegas dan cari bantuan","Cabarkan rakan","Rahsiakan semuanya"],1,"Kemahiran asertif membantu kita menolak tekanan rakan."],
+["Apakah tindakan yang sesuai jika peluh menyebabkan bau badan?",["Tidak mandi","Gunakan pakaian bersih dan jaga kebersihan","Sembur pewangi pada pakaian kotor sahaja","Berhenti bersukan"],1,"Kebersihan diri dan pakaian bersih membantu mengurangkan bau badan."],
+["Perubahan akil baligh berlaku…",["Pada masa yang sama bagi semua orang","Dengan kadar berbeza antara individu","Hanya kepada orang dewasa","Hanya apabila sakit"],1,"Setiap individu berkembang mengikut kadar masing-masing."],
+["Apakah yang perlu dilakukan jika seseorang meminta gambar peribadi yang membuat kamu tidak selesa?",["Hantar segera","Kongsi kepada semua rakan","Jangan hantar, hentikan perbualan dan beritahu orang dewasa dipercayai","Percaya kerana dia kawan dalam talian"],2,"Jaga privasi digital dan minta bantuan orang dewasa."],
+["Apakah contoh menghargai diri?",["Membandingkan tubuh dengan semua orang","Bersyukur dan menjaga kesihatan diri","Menghina penampilan sendiri","Mengabaikan kebersihan"],1,"Hargai diri dan amalkan penjagaan kesihatan."],
+["Jika melihat rakan dibuli kerana perubahan tubuh, kamu patut…",["Ketawa bersama pembuli","Rakam untuk hiburan","Bantu dengan selamat dan laporkan kepada guru","Sebarkan video"],2,"Jangan menyertai buli; dapatkan bantuan orang dewasa."],
+["Apakah tujuan menjaga kebersihan kawasan sulit?",["Untuk menjaga kesihatan dan keselesaan","Supaya boleh mengejek orang","Supaya tidak perlu mandi","Tiada sebab"],0,"Kebersihan diri ialah sebahagian penjagaan kesihatan."],
+["Jika nasihat kesihatan dalam talian bercanggah, kamu patut…",["Percaya tajuk paling sensasi","Semak dengan orang dewasa dipercayai atau petugas kesihatan","Kongsi terus","Ikut komen terbanyak"],1,"Semak maklumat dengan sumber yang boleh dipercayai."],
+["Apakah kemahiran yang digunakan apabila berkata 'Tidak, saya tidak selesa' dengan tegas dan sopan?",["Asertif","Mengejek","Mengugut","Mengelak tanggungjawab"],0,"Komunikasi asertif menyampaikan batas diri dengan jelas."],
+["Apakah langkah pertama apabila berasa tidak selamat?",["Terus tinggal bersendirian dengan situasi itu","Pergi ke tempat selamat jika boleh","Sembunyikan daripada semua orang","Salahkan diri"],1,"Utamakan keselamatan dan dapatkan bantuan."],
+["Apakah mesej utama Pameran Kesihatan?",["Perubahan diri perlu diejek","Kesihatan hanya tanggungjawab guru","Kenali diri, jaga kebersihan, hormati batas dan pilih tindakan selamat","Jangan bertanya soalan"],2,"Pengetahuan membantu kita menjaga diri dan menghormati orang lain."]
+];
+let idx=0,score=0,answered=false,sound=true,lastScore=null;
+function showPanel(id,btn){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));if(btn)btn.classList.add('active');if(id==='game'&&idx===0&& !answered)renderQuestion();if(id==='hasil')updateReport();}
+function toggleSound(){sound=!sound;document.getElementById('soundBtn').textContent=sound?'🔊 Bunyi: ON':'🔇 Bunyi: OFF';if(sound)speak('Bunyi diaktifkan');}
+function speak(t){if(!sound)return;try{if('speechSynthesis'in window){speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(t);u.lang='ms-MY';u.rate=0.95;speechSynthesis.speak(u)}}catch(e){}}
+function beep(ok){if(!sound)return;try{let C=window.AudioContext||window.webkitAudioContext;if(!C)return;let c=new C(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=ok?880:220;g.gain.value=.08;o.start();o.stop(c.currentTime+.16)}catch(e){}}
+function startGame(){idx=0;score=0;answered=false;document.getElementById('quiz').classList.remove('hide');document.getElementById('gameover').classList.add('hide');renderQuestion();}
+function renderQuestion(){answered=false;let q=questions[idx];document.getElementById('counter').textContent=`Soalan ${idx+1} / ${questions.length}`;document.getElementById('score').textContent=`⭐ ${score}`;document.getElementById('bar').style.width=`${idx/questions.length*100}%`;document.getElementById('qtext').textContent=q[0];document.getElementById('feedback').textContent='Pilih jawapan yang paling tepat!';document.getElementById('next').disabled=true;document.getElementById('next').textContent=idx===questions.length-1?'Lihat keputusan 🏆':'Soalan seterusnya ➜';let a=document.getElementById('answers');a.innerHTML='';q[1].forEach((v,i)=>{let b=document.createElement('button');b.textContent=['🅰️','🅱️','🆑','🅳'][i]+'  '+v;b.onclick=()=>choose(i,b);a.appendChild(b)});}
+function choose(n,btn){if(answered)return;answered=true;let q=questions[idx],buttons=[...document.querySelectorAll('#answers button')];buttons.forEach(b=>b.disabled=true);if(n===q[2]){score++;btn.classList.add('correct');document.getElementById('feedback').textContent='✅ Betul! Syabas! ⭐ '+q[3];beep(true);speak('Betul! Syabas!');}else{btn.classList.add('wrong');buttons[q[2]].classList.add('correct');document.getElementById('feedback').textContent='❌ Belum tepat. Cuba lagi! '+q[3];beep(false);speak('Belum tepat. Cuba lagi!');}document.getElementById('score').textContent=`⭐ ${score}`;document.getElementById('bar').style.width=`${(idx+1)/questions.length*100}%`;document.getElementById('next').disabled=false;}
+function nextQuestion(){if(!answered)return;if(idx<questions.length-1){idx++;renderQuestion()}else{finishGame()}}
+function finishGame(){lastScore=score;document.getElementById('quiz').classList.add('hide');document.getElementById('gameover').classList.remove('hide');let pct=score/questions.length*100;let name=document.getElementById('student').value.trim()||'Penjelajah Kesihatan';document.getElementById('endtitle').textContent=pct>=80?'Wah, hebat! Juara Kesihatan!':pct>=50?'Syabas! Teruskan usaha!':'Terus mencuba, anda boleh!';document.getElementById('endtext').textContent=`${name}, anda memperoleh ${score} daripada ${questions.length} bintang (${pct}%).`;document.getElementById('trophy').textContent=pct>=80?'🏆🎉🌈':pct>=50?'🥈👏✨':'🌱💪💖';document.getElementById('badge').textContent=pct>=80?'Lencana: Duta Kesihatan Cemerlang!':pct>=50?'Lencana: Penjelajah Kesihatan!':'Lencana: Pejuang Kesihatan — terus belajar!';document.getElementById('bar').style.width='100%';updateReport();speak(pct>=80?'Tahniah! Anda juara kesihatan!':'Syabas kerana mencuba! Teruskan belajar.');}
+function updateReport(){let name=document.getElementById('student').value.trim()||'Belum diisi';document.getElementById('report').innerHTML=lastScore===null?`<b>Nama:</b> ${escapeHtml(name)}<br>Belum ada keputusan kuiz. Jom jawab 20 soalan!`:`<div style="font-size:1.3rem">🌟 ${escapeHtml(name)} 🌟</div><b>Skor:</b> ${lastScore}/20 bintang<br><b>Pencapaian:</b> ${lastScore>=16?'Duta Kesihatan Cemerlang':lastScore>=10?'Penjelajah Kesihatan':'Pejuang Kesihatan'}<br><b>Mesej:</b> Terus amalkan ilmu kesihatan dalam kehidupan harian.`}
+function saveReport(){updateReport();let r=document.getElementById('reflection').value.trim();if(r)document.getElementById('report').innerHTML+='<br><b>Refleksi:</b> '+escapeHtml(r);speak('Refleksi dipaparkan. Terima kasih!');}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+renderQuestion();
+</script>
+</body></html>
